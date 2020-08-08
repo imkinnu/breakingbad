@@ -1,38 +1,22 @@
 import React from 'react'
+import Image from './../UI/Image/Image'
+import Card from './../UI/Card/Card';
+import Cardbody from './../UI/Card/Cardbody/Cardbody';
+import Cardheader from './../UI/Cardheader/Cardheader';
 
 const CharacterItem = ({ item, onClick }) => {
 
     const updateSingleItem = () => {
         onClick(item);
     }
-
-
     return (
-        <a href="#openModal-about">
-            <div className='card' href="" onClick={(item) => updateSingleItem(item)}>
-                <div className='card-inner'>
-                    <div className='card-front'>
-                        <img src={item.img} alt='' />
-                    </div>
-                    <div className='card-back'>
-                        <h1>{item.name}</h1>
-                        <ul>
-                            <li>
-                                <strong>Actor Name:</strong> {item.portrayed}
-                            </li>
-                            <li>
-                                <strong>Nickname:</strong> {item.nickname}
-                            </li>
-                            <li>
-                                <strong>Birthday:</strong> {item.birthday}
-                            </li>
-                            <li>
-                                <strong>Status:</strong> {item.status}
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <a data-toggle="modal" data-target=".bd-example-modal-lg" href="#!" onClick={(item) => updateSingleItem(item)}>
+            <Card className="h-100 mb-3" href="" >
+                <Cardheader className="bg-dark text-white">{item.name}</Cardheader>
+                <Cardbody>
+                    <Image className="card-img-top" source={item.img} alt={item.name} height="225px" width="200px" />
+                </Cardbody>
+            </Card>
         </a>
     )
 }
